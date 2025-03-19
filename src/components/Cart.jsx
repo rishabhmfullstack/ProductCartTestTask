@@ -4,19 +4,24 @@ const Cart = ({ cart, updateQuantity, removeFromCart }) => {
   return (
     <div className="cart">
       <h2>Shopping Cart</h2>
-      {Cart.length === 0 ? (
+      {cart.length === 0 ? (
         <p>your cart is empty</p>
       ) : (
         cart.map((item) => (
           <div key={item.id} className="cart-item">
-            <span>
-              {item.name}-${item.price}x {item.quantity}
-            </span>
+            <div className="cart-item-info">
+             <img src={item.url}></img> {item.name}-${item.price}x {item.quantity}
+            </div>
             {item.id !== 99 && (
               <>
-                <button onClick={() => updateQuantity(item.id,item.quantity -1)}>-</button>
-                <button onClick={() => updateQuantity(item.id,item.quantity +1)}>+</button>
-                <button onClick={() => removeFromCart(item.id)}>Remove</button>
+              <div className="cart-item-quantity">
+              <button onClick={() => updateQuantity(item.id,item.quantity -1)}>-</button>
+
+              
+              <button onClick={() => updateQuantity(item.id,item.quantity +1)}>+</button>
+              <button onClick={() => removeFromCart(item.id)}>Remove</button>
+              </div>
+               
               </>
             )}
           </div>
