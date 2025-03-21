@@ -6,7 +6,7 @@ import ProductList from './components/ProductList'
 import { FREE_GIFT, PRODUCTS, THRESHOLD } from '../data'
 
 function App() {
-const [cart,setCart]=useState([])
+const [cart, setCart] = useState([])
 const addToCart = (product, quantity = 1) => {
   if (!quantity || isNaN(quantity)) {
     quantity = 1; 
